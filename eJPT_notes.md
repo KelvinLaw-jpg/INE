@@ -34,6 +34,24 @@ Tools:
 - use httrack to download an offline version of the website, sometimes it shows more hidden info`httrack http://target.ine.local -O target.html`
 
 
+Vulnerability Assessment
+---
+
+Tools: metasploit, Nessus
+
+Common vulnerabilities of windows:
+- Microsoft IIS port 80/443 - proprietary web server software
+- WebDAV port 80/443 - http extension
+- SMB/CIFS port 445
+- RDP port 3389
+- WinRM port 5986/443
+
+
+
+
+
+
+
 Auditing Fundamentals
 ---
 
