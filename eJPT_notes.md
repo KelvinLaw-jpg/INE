@@ -32,3 +32,20 @@ Tools:
 - dirb is the fastest and least input needed
 - rmb to use dirb -X <file extension> to bf hidden files such as `dirb http://target.ine.local -w /usr/share/dirb/wordlists/big.txt -X .bak,.tar.gz,.zip,.sql,.bak.zip`
 - use httrack to download an offline version of the website, sometimes it shows more hidden info`httrack http://target.ine.local -O target.html`
+
+
+Auditing Fundamentals
+---
+
+**Why Security Audits?** : mostly because compliance and regulations for companies
+
+**What are the differences of audits, accessments and pentests?**:
+
+**Terminalogy:**
+
+
+**Security Audit life cycle/process:**
+
+
+
+
