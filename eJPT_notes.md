@@ -39,12 +39,32 @@ Auditing Fundamentals
 
 **Why Security Audits?** : mostly because compliance and regulations for companies
 
-**What are the differences of audits, accessments and pentests?**:
+**What are the differences of audits, accessments and pentests?**: Security audits are evaluation and verification of the sercurity measures and controls in place within an organization to ensure 
+they are effective, appropiate and comply with relevant standards, policy and regulations. It involves reviewing organization's info systems, networks, applications and operational procedures to 
+indentify weaknesses, vulnerabilities, and area of improvements.
 
-**Terminalogy:**
 
 
 **Security Audit life cycle/process:**
+
+1. Determine scope and objectives, relavent documents such as policies etc, establish auditing team
+2. try to identify gaps of the company and the compliants, collect technical info
+3. risk accessment, identify all assets, potential threats of assets, risk and risk levels
+4. Audit Execution: perform technical testing, conduct technical assessment such as pentesting, vul scans, configuration reviews. Verify compliance and evaluate controls
+5. Analysis findings, compare it to industry standards and prioritize issues such as CVSS scores
+6. reporting and presenting recommendations to stakeholders
+7. Remediation and continous updates
+
+**Types of Security Audits**
+Internal, External and Compliance audits, Technical audits, Network audits, and Application audits
+
+Tools: lynis from cisofy
+
+
+
+
+
+
 
 
 
