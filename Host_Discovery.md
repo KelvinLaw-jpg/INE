@@ -1,4 +1,4 @@
-# Host Discovery
+## Host Discovery
 
 - Every machine connected to a network will have an IP address
 - Goal is to determine all the machine and devices' IP and their open ports, OS, what services, service version
@@ -8,6 +8,13 @@
 ### Nmap
 - can use various protocols such as ICMP, ARP, TCP/UDP probes
 
+- **When and why use each**
+- ICMP is quick, but it gets block
+- TCP SYN is stealthier, but some host might not response and it can be affect by firewalls
+
+**Ping Sweep**
+- fping is an improvement (still use ICMP) of ping eg: fping -a -g <10.10.23.0/24> 2> /dev/null
+- Use nmap -Pn to get more accurate result
 
 **Host Discovery (-sn)**
 - Ping Sweeps: sending ICMP Echo Requests (sometimes doesn't work, and windows firewall by default block)
@@ -54,14 +61,15 @@ Demo
 - eg: the auth catergory scripts is used to automate authentication and credential automation related
 - eg: broadcast scripts are used to facilitate broadcases or multicast communication for host discovery
 - The default catergory is used to engage with the target in a safe and non dangerous way such as Exploitation
+- To learn more about the specific script you can do: nmap --script-help=<script name, eg: mongodb-databases>
+- To run specific script we can: nmap -sS -sV --script=mongodb-info -p- -T4 <IP>
+- To combine multiple scripts or a whole category we can: nmap -sS -sV --script=ftp-* -p21 -T4 <IP>
+- To specify a script cat we can: nmap -sS -sV --script=<category> -T4 <IP>
+
+**TIP: To combine OS, service version detection and script scan we can just use: nmap -sS -A -p- -T4 <IP>
 
 Demo
 - nmap -sS -sV -sC -p- -T4 <IP> //Default script scan, rmb to ascertain that it is a port scan if not -sC wont work correctly
 
-**When and why use each**
-- ICMP is quick, but it gets block
-- TCP SYN is stealthier, but some host might not response and it can be affect by firewalls
+## Firewall Detection & IDS Evasion
 
-**Ping Sweep**
-- fping is an improvement (still use ICMP) of ping eg: fping -a -g <10.10.23.0/24> 2> /dev/null
-- Use nmap -Pn to get more accurate result
