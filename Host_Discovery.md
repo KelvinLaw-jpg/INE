@@ -87,3 +87,12 @@ MTU: Maximum transmition unit
 - Idea: We know for every network the first address is given to the gateway, so if we spoof our packet is from the gateway, then it will be very trustable
 - nmap -Pn -sS -sV -p445,3389 -f(no specify fragmentation) --data-length 200 -D <IP(s) to spoof> <target IP>
 - g option to spoof port as well eg: nmap -Pn -sS -sV -p445,3389 -f(no specify fragmentation) --data-length 200 -g 53(looks like it comes from 53) -D <IP(s) to spoof> <target IP>
+
+
+**Optimization**
+- Check timing and performance session at nmap -h
+- Idea: You might want to slow down or speed up the scan due to old system, less suspicous traffic etc.
+- T0 ultra slow, and T5 is ultra aggressive
+- host-time: very useful on giving up on a host when the host does not response eg: nmap -Pn -sS -F --host-timeout 5s(move on if doesnt response in 5s) <IP>
+- Tip: some host will take longer to scan so DO NOT SET THE TIMEOUT TOO SHORT, YOU MIGHT MISS THE TARGET, Hackersploit usually set to 30s\
+- The Scan-delay controls the duration of each packets eg: nmap -sS -sV -F --scan-delay 15s <IP> //send packet every 15s, which will be very stealthy, usually just use -T instead of this option
