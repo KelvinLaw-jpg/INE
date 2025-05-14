@@ -18,7 +18,72 @@ msfconsole commands
 - The above will import the result automatically
 - To list vulnerabilities with the data just type `vulns` in msfconsole
 
+### Auxiliary Modules
+- Aux modultes are used for scanning, discovery, and fuzzing
+- The goal is to enumerate info from targets
+- Why do it again with msf modules? Reason is to learn more about the internal network and mahchines. These modules really shines in the post exploitation phrases. When other systems within the network that's not open to the public network, nmap will not work.
 
+**FTP Enum with msf modules**
+Tips for metasploit search: `search type:<type: auxiliary> name:<name: ftp>
 
+Common modules 
+- auxiliary/scanner/ftp/ftp_version //banner grabbing
+- auxiliary/scanner/ftp/ftp_login //bf the ftp with list
+- Tips for login module: `set USER_FILE /usr/share/metasploit-framework/data/wordlists/common_users.txt` & `set PASS_FILE /usr/share/metasploit-framework/data/wordlists/common_passwords.txt`
 
+**SMB Enum with msf modules**
+
+Tip: use setg(set global) when you first ran msfconsole to set the RHOSTS, so you dont need to keep setting it with in all the modules 
+
+Common modules
+- smb_enumusers (get username)
+- smb_enumshares
+- smb_login (BF the username)
+
+**web/http Enum with msf modules**
+
+Common modules
+- http_version
+- http_header
+- robots_txt
+- dir_scanner (for directory brute force)
+- files_dir (for file brute force in a directory)
+- http_login (an http login util
+- apache_user_enum (user enum)
+
+**MySQL Enum**
+
+Common modules
+- mysql_version
+- mysql_login (TIP: since a lot of mysql server has a root username for priv ac, we can just bf the password)
+- mysql_enum (need username and password)
+
+```
+use auxiliary/scanner/mysql/mysql_file_enum
+set USERNAME root
+set PASSWORD twinkle
+set RHOSTS demo.ine.local
+set FILE_LIST /usr/share/metasploit-framework/data/wordlists/directory.txt
+set VERBOSE true
+run
+```
+
+```
+use auxiliary/scanner/mysql/mysql_writable_dirs
+set RHOSTS demo.ine.local
+set USERNAME root
+set PASSWORD twinkle
+set DIR_LIST /usr/share/metasploit-framework/data/wordlists/directory.txt
+run
+```
+
+**SSH Enum**
+
+Common modules
+- ssh_login
+- ssh_enumusers
+
+**SMTP Enum**
+
+Great thing with SMTP is for enumerating username and password and test it out at ssh
 
