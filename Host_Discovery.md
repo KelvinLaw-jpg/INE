@@ -71,5 +71,19 @@ Demo
 Demo
 - nmap -sS -sV -sC -p- -T4 <IP> //Default script scan, rmb to ascertain that it is a port scan if not -sC wont work correctly
 
-## Firewall Detection & IDS Evasion
+## Firewall Detection & IDS Evasion -sA
 
+- Check nmap -h manual firewall evasion session
+
+The -sA flag sends an ACK packet (similar but not ACK ping scan), to tell us if the port is filtered/unfiltered/ or closed
+
+**Fragmentation**
+MTU: Maximum transmition unit
+
+- Normally the transmition unit is 8-32, 8 being the minimum, so if we set the Max Transmition Unit to 8, it will force fragment the packets
+- eg: nmap -Pn -sS -sV -p80,445,3389 -f --mtu 8 <IP>
+
+**Spoofing & Decoy**
+- Idea: We know for every network the first address is given to the gateway, so if we spoof our packet is from the gateway, then it will be very trustable
+- nmap -Pn -sS -sV -p445,3389 -f(no specify fragmentation) --data-length 200 -D <IP(s) to spoof> <target IP>
+- g option to spoof port as well eg: nmap -Pn -sS -sV -p445,3389 -f(no specify fragmentation) --data-length 200 -g 53(looks like it comes from 53) -D <IP(s) to spoof> <target IP>
