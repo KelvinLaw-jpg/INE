@@ -1,5 +1,3 @@
-# eJPT Notes
-
 ## Passive info gathering
 
 Tools: 
@@ -47,11 +45,6 @@ Common vulnerabilities of windows:
 - WinRM port 5986/443
 
 
-
-
-
-
-
 Auditing Fundamentals
 ---
 
@@ -77,13 +70,4 @@ indentify weaknesses, vulnerabilities, and area of improvements.
 Internal, External and Compliance audits, Technical audits, Network audits, and Application audits
 
 Tools: lynis from cisofy
-
-
-
-
-
-
-
-
-
 
