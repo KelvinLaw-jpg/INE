@@ -35,6 +35,8 @@ Common modules
 
 Tip: use setg(set global) when you first ran msfconsole to set the RHOSTS, so you dont need to keep setting it with in all the modules 
 
+Another useful tool: enum4linux -a target.ine.local
+
 Common modules
 - smb_enumusers (get username)
 - smb_enumshares
