@@ -87,3 +87,5 @@ Common modules
 
 Great thing with SMTP is for enumerating username and password and test it out at ssh
 
+- another neat little tool outside of msf is smtp-user-enum, see if it is installed, if not just install with apt
+
