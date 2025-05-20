@@ -10,3 +10,11 @@
 
 ### MSFConsole
 - search -h to learn about search options
+- Importing nmap scans: `db-import <path of nmap xml output>`
+- To perfoem a scan on internal network through the initial victim, run `run autoroute -s <IP>` in meterpreter
+
+
+### MySQL with MSF
+- useful modules: version, schemadum, login, file_enum
+- modules under /admin/ will need cred to use: mysql_enum, mysql_sql
+- TIP: can use `loot`, and `creds` to see credentials etc
