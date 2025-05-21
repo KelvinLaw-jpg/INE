@@ -18,3 +18,11 @@
 - useful modules: version, schemadum, login, file_enum
 - modules under /admin/ will need cred to use: mysql_enum, mysql_sql
 - TIP: can use `loot`, and `creds` to see credentials etc
+
+### Nessus with MSF
+- Do the scan with nessus and export it in XML `export nessus`
+- Load it in with `db_import <location of nessus scan>`
+- use the `vulns` command to see possible vulnerabilies
+
+### WMAP (web app) vuln scan with MSF
+- 
