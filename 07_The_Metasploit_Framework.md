@@ -1,5 +1,7 @@
 # Metasploit Framework
 
+TIP: if `SeImpersonatePrivilege` is available after `getprivs`, it is likely that you can `getsystem` to elevate the privilege
+
 ### MSFDB
 - sudo systemctl enable postgresql //enacle postgresql on startup
 - sudo systemctl start postgresql //start the service
