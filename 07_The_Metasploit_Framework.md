@@ -154,5 +154,38 @@ Demo
 ### Dumping Hashes with Mimikatz
 - to use mimikatz successfully, we need priv account and also need to migrate to LSASS
 - after `load kiwi` we can type `help` to get help
+- mimikatz is in the /usr/share/windows-resources/binaries/x64/
+- After the hashdump, use the module `smb/psexec` module to access the session legitimately
+
+### Establishing Persistence
+- Goal of persistence is to keep access to the system in the event of any interruptions such as shutdown, change of password, thus we cannot rely on vulnerable services or foothold
+- To acquire persistence, priv credentials are needed
+- To search for persistence modules, type `search platform:windows persistence`. popular modules: persistence_service, others aren't too stable
+
+**Through RDP**
+- Module is `enable_rdp`
+- credentials are needed for this method
+
+### Keylogging
+- TIP: the keylogger works more stable with the explorer process, so migrate before using it
+- `keyscan_start` in meterpreter to initiate the key logging, keyscan_dump to dump what's being stored
+
+### Clearing tracks in Eventlogs
+- Log types:
+  - Application logs: logs all app/program events like startups, crashes etc.
+  - Sys logs: Stores system events like startups, reboots
+  - Security logs: Stores security events like password changes, auth failures etc
+- The command is `clearev` in meterpreter to clear tracks
+
+
+
+
+
+
+
+
+
+
+
 
 
