@@ -177,11 +177,19 @@ Demo
   - Security logs: Stores security events like password changes, auth failures etc
 - The command is `clearev` in meterpreter to clear tracks
 
+### Pivoting
+Goal: Pivoting is to use the initial host to compromise other hosts on the same network which we previously do not have access to
 
+Demo
+- After compromising, use `ipconfig` in meterpreter to check NIC
+- Add the interface as a node in that route by saying `run autoroute -s 10.2.16.0/20`
+- Then we can use scans modules in msf **note that only modules in msf will work, we cannot perform other scans from our kali machine**
+- If we want to scan the subnet from the kali box, we will need to set up port forwarding, by doing `portfwd add -l <the local port on kali, eg:1234> -p <Victim 2 open port, eg:80> -r <Victim 2 IP>`
+(above command basically says any traffic to local kali box port 1234 will get forwarded to Victim 2 ip to port 80, through victim 1, since meterpreter is running on victim 1), the response will look like (Victim2 responds → Victim1 → Meterpreter session → back to Kali)
+- The result of the above will be a command like this `db_nmap -sS -sV -p 1234 localhost` so instead of scanning the target, we want to scan our localhost port 1234 so the traffic will send to the target
+- And assuming victim 2 have badblue running on port 80(which it is on lab), we now want the payload to be a bind shell instead, and the RHOSTS to Victim 2 IP.
 
-
-
-
+### Linus Post Exploitation
 
 
 
