@@ -12,7 +12,7 @@
 ### Common Web App Threats & Risks
 
 - Threat is the danger such as malware, XXS, SQL injection etc, risk is the potential or the likelihood of the incident happening and the potential magnitude of its impact
-- 
+- Most common Threats can be found at OWASP TOP 10, but here are some of them: XSS, SQLi, CSRF, Security Misconfigurations, Sensitive Data Exposure, BF and Credential Stuffing Attacks, File Upload Vulnerabilites, DoS/DDoS, SSRF, Broken or Inadequate AC, Using Components with Known Vuln, 
 
 
 
