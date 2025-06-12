@@ -45,3 +45,42 @@ Types: Client-Server model
 - SOAP (Simple Object Access Protocol): used for exchanging structured info in the implementation of seb services. It uses XML as the data interchange format and provides a standardized method for communication between different systems
 - Authentication Mechanism: cookies, Authorization Mechanisms: user roles and permissions, Encryption: SSL/TLS
 - External Technologies include Content Delivery Networks (CDNs), Third-Party Libraries and Frameworks
+
+## HTTP
+- Pivotal and most crucial to how machines communicate through the web
+- Stateless application layer protocol - meaning there is no handshake like tcp where connection is confirmed beforehand, specifically design for web browsers and web servers
+- resources are uniquely identified with a url/uri
+- http 1.1 is the later version and has the ability to re-use the same connection without having to initiate a new connection for a different resources/URI's
+
+### Request
+
+Main Components of request line
+- Http method (GET POST PUT DELETE)
+- URL: address of the resource, not domain, but the location of the page or resource at the host
+- HTTP version: The version used to communicate
+
+Request Headers (use to provide additional info about the request)
+- User-Agent
+- Host: hostname of server
+- Accept (Media types the client will response to, if not drop)
+- Accept encoding: compression to optimize client server communication
+- Authorization
+- Cookie
+
+### Response
+
+Response Headers
+- Content-Type: Media Type (text/html, appication/json)
+- Date here is refer to the time when the response generated on the server side, used for time synchronization (very useful for time based/blind sqli) 
+- Content-Length: Size of response body
+- Set-Cookie: set the cookies for subsequent requests (sessions management)
+- Cache-Control: Directives for caching behaviour, use to store the front end of a website to speed up loading
+- Cache headers allow browser and server to agree about caching rules, allows servers to instruct clients on how long they can cache the response and under what conditions to revalidate, helps with optimizing performance and reduce unneccessary request as mentioned above
+- 403 Status code: means you do not have the perm to access the resource
+- X-Powered-By shows the underlaying language and machine running
+
+Practice
+- wireshark is good, but it does not allow us to intercept traffic, so we can use curl
+- curl -v http://<IP> //send simple http request with curl
+- curl -v -I http://<IP> //send a head request to it, basically just response with the head but not the body
+- curl -v -I OPTIONS http://<IP> //OPTIONS show what the supported http options for this webpage are
