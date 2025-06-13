@@ -84,3 +84,5 @@ Practice
 - curl -v http://<IP> //send simple http request with curl
 - curl -v -I http://<IP> //send a head request to it, basically just response with the head but not the body
 - curl -v -I OPTIONS http://<IP> //OPTIONS show what the supported http options for this webpage are
+- curl -X HEAD <url> is the same as curl -I <url>
+- curl -X OPTIONS demo.ine.local -v //shows the method allows on the page, rmb to use -v verbose, if not nothing will return
