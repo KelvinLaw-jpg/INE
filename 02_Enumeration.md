@@ -59,6 +59,7 @@ Another useful tool: enum4linux -a target.ine.local
 - smb_login (BF the username)
 
 **nmap scripts and their use**
+Useful command: `nmap -p139,445 --script "smb-*" --script-args=smbuser=administrator,smbpass=smbserver_771  demo.ine.local -Pn -n -vv  `
 
 | **Category**            | **Script**                        | **Description** |
 |-------------------------|----------------------------------|-----------------|
