@@ -23,7 +23,7 @@ msfconsole commands
 - The goal is to enumerate info from targets
 - Why do it again with msf modules? Reason is to learn more about the internal network and mahchines. These modules really shines in the post exploitation phrases. When other systems within the network that's not open to the public network, nmap will not work.
 
-**FTP Enum with msf modules**
+### FTP Enum with msf modules
 Tips for metasploit search: `search type:<type: auxiliary> name:<name: ftp>
 
 Common modules 
@@ -31,7 +31,7 @@ Common modules
 - auxiliary/scanner/ftp/ftp_login //bf the ftp with list
 - Tips for login module: `set USER_FILE /usr/share/metasploit-framework/data/wordlists/common_users.txt` & `set PASS_FILE /usr/share/metasploit-framework/data/wordlists/common_passwords.txt`
 
-**SMB Enum with msf modules**
+### SMB Enum with msf modules
 
 Tip: use setg(set global) when you first ran msfconsole to set the RHOSTS, so you dont need to keep setting it with in all the modules 
 
@@ -42,7 +42,7 @@ Common modules
 - smb_enumshares
 - smb_login (BF the username)
 
-**web/http Enum with msf modules**
+### web/http Enum with msf modules
 
 Common modules
 - http_version
@@ -53,7 +53,7 @@ Common modules
 - http_login (an http login util
 - apache_user_enum (user enum)
 
-**MySQL Enum**
+### MySQL Enum
 
 Common modules
 - mysql_version
@@ -79,13 +79,13 @@ set DIR_LIST /usr/share/metasploit-framework/data/wordlists/directory.txt
 run
 ```
 
-**SSH Enum**
+### SSH Enum
 
 Common modules
 - ssh_login
 - ssh_enumusers
 
-**SMTP Enum**
+### SMTP Enum
 
 Great thing with SMTP is for enumerating username and password and test it out at ssh
 
