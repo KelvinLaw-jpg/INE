@@ -23,24 +23,82 @@ msfconsole commands
 - The goal is to enumerate info from targets
 - Why do it again with msf modules? Reason is to learn more about the internal network and mahchines. These modules really shines in the post exploitation phrases. When other systems within the network that's not open to the public network, nmap will not work.
 
-### FTP Enum with msf modules
+### FTP Enum 
 Tips for metasploit search: `search type:<type: auxiliary> name:<name: ftp>
 
-Common modules 
+msf modules 
 - auxiliary/scanner/ftp/ftp_version //banner grabbing
 - auxiliary/scanner/ftp/ftp_login //bf the ftp with list
 - Tips for login module: `set USER_FILE /usr/share/metasploit-framework/data/wordlists/common_users.txt` & `set PASS_FILE /usr/share/metasploit-framework/data/wordlists/common_passwords.txt`
 
-### SMB Enum with msf modules
+**nmap scripts and their use**
+
+| **Category**            | **Script**                      | **Description** |
+|-------------------------|----------------------------------|-----------------|
+| **Anonymous Access**    | `ftp-anon`                      | Attempts to log in to FTP with anonymous credentials and list files. |
+| **Brute Forcing**       | `ftp-brute`                     | Performs brute-force password auditing against FTP. |
+| **Vulnerability Check** | `ftp-bounce`                    | Checks for FTP bounce attack vulnerability. |
+|                         | `ftp-proftpd-backdoor`          | Checks for ProFTPD backdoor (CVE-2010-4221). |
+|                         | `ftp-vsftpd-backdoor`           | Detects vsftpd 2.3.4 backdoor (smiley face vulnerability). |
+|                         | `ftp-vuln-cve2010-4221`         | Checks for ProFTPD 1.3.2b RCE vulnerability. |
+| **Information Gathering**| `ftp-syst`                     | Retrieves FTP server system information using the SYST command. |
+|                         | `ftp-libopie`                   | Attempts to bypass One-Time Passwords (OTP) in OPIE. |
+| **TFTP Specific**       | `tftp-enum`                     | Attempts to enumerate files on a TFTP server. |
+|                         | `tftp-version`                  | Attempts to determine the TFTP server version. |
+
+
+### SMB Enum
 
 Tip: use setg(set global) when you first ran msfconsole to set the RHOSTS, so you dont need to keep setting it with in all the modules 
 
 Another useful tool: enum4linux -a target.ine.local
 
-Common modules
+**msf modules**
 - smb_enumusers (get username)
 - smb_enumshares
 - smb_login (BF the username)
+
+**nmap scripts and their use**
+
+| **Category**            | **Script**                        | **Description** |
+|-------------------------|----------------------------------|-----------------|
+| **Enumeration & Info**  | `smb-enum-domains`               | List Windows domains the host belongs to. |
+|                         | `smb-enum-groups`                | List Windows groups. |
+|                         | `smb-enum-processes`             | List running processes via SMB. |
+|                         | `smb-enum-services`              | List running services on the system. |
+|                         | `smb-enum-sessions`              | Enumerate SMB sessions (who’s connected). |
+|                         | `smb-enum-shares`                | List SMB shared folders. |
+|                         | `smb-enum-users`                 | List local users on the SMB server. |
+|                         | `smb-os-discovery`               | Identify the operating system via SMB. |
+|                         | `smb-system-info`                | Gather basic SMB system information. |
+|                         | `smb-server-stats`               | Show SMB server stats (traffic, open connections). |
+| **File & Directory**    | `smb-ls`                         | List files and directories on shares. |
+|                         | `smb-mbenum`                     | Enumerate systems via NetBIOS. |
+|                         | `smb-print-text`                 | Send text file to a printer share. |
+|                         | `smb-protocols`                  | List supported SMB protocols (1/2/3). |
+|                         | `smb2-time`                      | Get system time via SMBv2. |
+|                         | `smb2-capabilities`              | Show SMBv2 server capabilities. |
+|                         | `smb2-security-mode`             | Display SMBv2 signing/encryption settings. |
+|                         | `smb-security-mode`              | Show SMBv1 signing/encryption requirements. |
+| **Authentication**      | `smb-brute`                      | Brute-force SMB login credentials. |
+|                         | `smb-psexec`                     | Remote command execution via SMB (PsExec-like). |
+| **Vulnerability Check** | `smb-double-pulsar-backdoor`     | Detect DoublePulsar backdoor. |
+|                         | `smb-vuln-conficker`             | Check for Conficker worm vulnerability. |
+|                         | `smb-vuln-cve-2017-7494`         | Check Samba RCE vulnerability (2017-7494). |
+|                         | `smb-vuln-cve2009-3103`          | Check privilege escalation via SMB. |
+|                         | `smb-vuln-ms06-025`              | Detect vuln in Routing and Remote Access. |
+|                         | `smb-vuln-ms07-029`              | Check RPC Interface Mapping vuln. |
+|                         | `smb-vuln-ms08-067`              | Check for classic RCE vuln (used by EternalBlue). |
+|                         | `smb-vuln-ms10-054`              | Check RCE vuln on XP/2003. |
+|                         | `smb-vuln-ms10-061`              | Printer service vulnerability detection. |
+|                         | `smb-vuln-ms17-010`              | Check for EternalBlue (MS17-010). |
+|                         | `smb-vuln-regsvc-dos`            | DoS check for Windows Registry Service. |
+|                         | `smb-vuln-webexec`               | WebEx RCE vulnerability check. |
+| **Exploitation/Noise**  | `smb-webexec-exploit`            | Try exploiting WebExec RCE. |
+|                         | `smb-flood`                      | DoS by flooding SMB with connections. |
+|                         | `smb2-vuln-uptime`               | Checks uptime and vuln status via SMBv2. |
+
+
 
 ### web/http Enum with msf modules
 
